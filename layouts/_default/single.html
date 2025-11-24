@@ -1,22 +1,21 @@
 {{ define "main" }}
-<section class="section blog-single">
+<section class="section-wrapper blog-single">
     <div class="container">
         <article class="blog-post">
             <header class="post-header">
-                <h1 class="post-title">{{ .Title }}</h1>
+                <h1 class="post-title glitch-text" style="font-size: 3rem;">{{ .Title }}</h1>
                 <div class="post-meta">
-                    <span class="date"><i class="far fa-calendar-alt"></i> {{ .Date.Format "January 2, 2006" }}</span>
+                    <span class="date" style="font-family: var(--font-mono); color: var(--accent-color);">{{ .Date.Format "2006-01-02" }}</span>
                     {{ if .Params.categories }}
-                    <span class="categories">
-                        <i class="far fa-folder"></i>
-                        {{ range .Params.categories }}
-                        <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+                    <span class="categories" style="font-family: var(--font-mono); margin-left: 20px;">
+                        // {{ range .Params.categories }}
+                        <a href="{{ "/categories/" | relURL }}{{ . | urlize }}" style="color: var(--text-secondary);">{{ . }}</a>
                         {{ end }}
                     </span>
                     {{ end }}
                 </div>
             </header>
-            <div class="post-content">
+            <div class="post-content" style="margin-top: 50px;">
                 {{ .Content }}
             </div>
         </article>

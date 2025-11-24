@@ -1,14 +1,20 @@
 {{ define "main" }}
-<section class="section blog-list">
+<section class="section-wrapper blog-list">
     <div class="container">
-        <h1 class="section-title">{{ .Title }}</h1>
-        <div class="cards-grid">
+        <div class="section-header">
+            <span class="section-number">LOGS</span>
+            <h2 class="section-title">{{ .Title }}</h2>
+        </div>
+        <div class="grid-2-col">
             {{ range .Pages }}
-            <div class="card blog-card">
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
-                <p>{{ .Summary | truncate 150 }}</p>
-                <a href="{{ .RelPermalink }}" class="card-link">Read More <i class="fas fa-arrow-right"></i></a>
+            <div class="brutalist-card">
+                <div class="card-border"></div>
+                <div class="card-content">
+                    <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
+                    <p class="institution" style="margin-bottom: 15px;">{{ .Date.Format "2006-01-02" }}</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ .Summary | truncate 150 }}</p>
+                    <a href="{{ .RelPermalink }}" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">READ_ENTRY</a>
+                </div>
             </div>
             {{ end }}
         </div>
