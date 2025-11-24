@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section class="section blog-list">
+    <div class="container">
+        <h1 class="section-title">{{ .Title }}</h1>
+        <div class="cards-grid">
+            {{ range .Pages }}
+            <div class="card blog-card">
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+                <p>{{ .Summary | truncate 150 }}</p>
+                <a href="{{ .RelPermalink }}" class="card-link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

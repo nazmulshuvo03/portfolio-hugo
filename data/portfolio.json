@@ -1,0 +1,145 @@
+{
+  "personal_information": {
+    "name": "Nazmul Alom",
+    "location": "Dhaka, Bangladesh",
+    "phone": "+8801791916440",
+    "linkedin": "linkedin.com/in/nazmul-alom",
+    "email": "nazmulshuvo03@gmail.com",
+    "image": "image/nazmul_alom.png"
+  },
+  "professional_summary": "Full Stack Engineer with over 6 years of remote experience in the FinTech, EdTech, and IoT industries. Expert in developing scalable solutions using JavaScript, TypeScript, and Python. Proven track record of leading technical initiatives and driving product development from concept to deployment. Committed to continuous learning and acquiring advanced knowledge in emerging technologies and Data Science.",
+  "experience": [
+    {
+      "company": "Mustaruusu Technology Asia",
+      "location": "Remote",
+      "role": "Software Engineer",
+      "start": "June 2025",
+      "end": "Present",
+      "highlights": [
+        "Spearheaded end-to-end development of a Project Management app using FastAPI and React.",
+        "Mentored junior developers and conducted code reviews to ensure high code quality and architectural standards.",
+        "Implemented async task processing with RabbitMQ and caching with Redis, optimizing system performance."
+      ]
+    },
+    {
+      "company": "Upsurge",
+      "location": "Remote, India",
+      "role": "Full Stack Developer",
+      "start": "Apr 2022",
+      "end": "Nov 2024",
+      "highlights": [
+        "Architected scalable server-side web applications using Next.js, Node.js, and PostgreSQL.",
+        "Developed and deployed the primary mobile application using React Native, ensuring cross-platform compatibility.",
+        "Optimized backend structures and database schemas to support high-traffic user interactions."
+      ]
+    },
+    {
+      "company": "EnrichAI",
+      "location": "Remote, India",
+      "role": "Front End Development Engineer II",
+      "start": "Oct 2020",
+      "end": "Apr 2022",
+      "highlights": [
+        "Built complex IoT-based PWAs for vehicle tracking and yard management using React and Cumulocity IoT.",
+        "Engineered a fleet management dashboard featuring real-time data visualization with Google Maps and ECharts.",
+        "Managed state for large-scale data streams using Redux and Redux Saga."
+      ]
+    },
+    {
+      "company": "Pvot",
+      "location": "Remote, India",
+      "role": "React Developer",
+      "start": "Apr 2019",
+      "end": "Sep 2020",
+      "highlights": [
+        "Created the frontend of a FinTech PWA for investors using React, TypeScript, and Material-UI.",
+        "Collaborated on a Server-Side Rendered (SSR) financial blog platform using Next.js and Django."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "MSc in Computer Science & Engineering (Major in Data Science)",
+      "institution": "Daffodil International University, Dhaka",
+      "start": "Jan 2025",
+      "end": "Present"
+    },
+    {
+      "degree": "BSc (Hons) in Mathematics",
+      "institution": "University of Barisal, Barisal",
+      "start": "2014",
+      "end": "2018"
+    }
+  ],
+  "technical_skills": {
+    "languages": ["JavaScript (ES6+)", "TypeScript", "Python", "SQL"],
+    "frontend": ["React", "Next.js", "React Native", "Redux", "Tailwind CSS", "Material-UI"],
+    "backend": ["Node.js", "FastAPI", "Django", "RESTful APIs"],
+    "database_storage": ["PostgreSQL", "MongoDB", "Redis"],
+    "infrastructure_tools": ["RabbitMQ", "AWS", "GCP", "Linux", "Git", "Cumulocity IoT"]
+  },
+  "certifications": [
+    {
+      "name": "Introducing Generative AI with AWS",
+      "issuer": "Udacity",
+      "date": "Jun 2025",
+      "credential_id": "5a5857b8-49e8-11f0-b966-2ffd86beae76",
+      "url": "https://www.udacity.com/certificate/e/5a5857b8-49e8-11f0-b966-2ffd86beae76"
+    },
+    {
+      "name": "IBM Full Stack Software Developer",
+      "issuer": "IBM",
+      "date": "Dec 2024",
+      "credential_id": "HVTRQBOUIZU7",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/HVTRQBOUIZU7"
+    },
+    {
+      "name": "Machine Learning Specialization",
+      "issuer": "Stanford University (Coursera)",
+      "date": "Oct 2024",
+      "credential_id": "P4NETROO3Y2V",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/P4NETROO3Y2V"
+    },
+    {
+      "name": "Build Basic Generative Adversarial Networks (GANs)",
+      "issuer": "Coursera",
+      "date": "Dec 2020",
+      "credential_id": "CNSVWXDLLCH5",
+      "url": "https://coursera.org/share/71c85f900741b3a0b75e5ca9b85851d5"
+    },
+    {
+      "name": "Sequence Models",
+      "issuer": "Coursera",
+      "date": "Dec 2020",
+      "credential_id": "LCJ2KQP39T9F",
+      "url": "https://coursera.org/share/2f245abf27a2cd78c4ecb56571e630a7"
+    },
+    {
+      "name": "Secure & Private AI Challenge Scholarship",
+      "issuer": "Udacity",
+      "date": "Sep 2019",
+      "url": null
+    },
+    {
+      "name": "Convolutional Neural Networks",
+      "issuer": "Coursera",
+      "date": "Aug 2018",
+      "credential_id": "55ZQB9AFLLQL",
+      "url": "https://www.coursera.org/account/accomplishments/verify/55ZQB9AFLLQL"
+    },
+    {
+      "name": "Neural Networks and Deep Learning",
+      "issuer": "Coursera",
+      "date": "Aug 2018",
+      "credential_id": "64XFYX4W2646",
+      "url": "https://www.coursera.org/account/accomplishments/verify/64XFYX4W2646"
+    },
+    {
+      "name": "Top-up IT Training",
+      "issuer": "George Washington University, USA",
+      "date": "Mar 2018",
+      "credential_id": "G049389",
+      "url": "http://portal.bdskills.gov.bd/Graduate/Home/ViewCertificate"
+    }
+  ]
+}
