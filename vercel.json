@@ -1,0 +1,12 @@
+{
+  "buildCommand": "hugo --gc --minify",
+  "outputDirectory": "public",
+  "devCommand": "hugo server -D -p $PORT",
+  "framework": "hugo",
+  "functions": {
+    "api/**/*.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
