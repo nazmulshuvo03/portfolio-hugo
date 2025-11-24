@@ -13,6 +13,13 @@
                         {{ end }}
                     </span>
                     {{ end }}
+                    {{ if .Params.tags }}
+                    <span class="tags" style="font-family: var(--font-mono); margin-left: 20px;">
+                        [ {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" style="color: var(--accent-color);">#{{ . }}</a>
+                        {{ end }} ]
+                    </span>
+                    {{ end }}
                 </div>
             </header>
             <div class="post-content" style="margin-top: 50px;">

@@ -1,8 +1,10 @@
 ---
 title: "Welcome to my new portfolio!"
-date: 2025-11-25T10:00:00+06:00
+date: 2025-11-24T10:00:00+06:00
 draft: false
+description: "An introduction to my new portfolio website built with Hugo."
 categories: ["General"]
+tags: ["Portfolio", "Hugo"]
 ---
 
 Welcome to my new portfolio website! I built this using Hugo, a fast and modern static site generator.

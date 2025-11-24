@@ -11,8 +11,18 @@
                 <div class="card-border"></div>
                 <div class="card-content">
                     <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
-                    <p class="institution" style="margin-bottom: 15px;">{{ .Date.Format "2006-01-02" }}</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ .Summary | truncate 150 }}</p>
+                    <div class="meta-tags" style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
+                        <span style="color: var(--accent-color);">{{ .Date.Format "2006-01-02" }}</span>
+                        {{ if .Params.categories }}
+                        <span style="margin-left: 10px;">// {{ range .Params.categories }}{{ . }} {{ end }}</span>
+                        {{ end }}
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary | truncate 150 }}{{ end }}</p>
+                    <div class="tags-list" style="margin-bottom: 20px;">
+                        {{ range .Params.tags }}
+                        <span style="display: inline-block; border: 1px solid var(--border-color); padding: 2px 8px; font-size: 0.7rem; margin-right: 5px; font-family: var(--font-mono); color: var(--text-secondary);">#{{ . }}</span>
+                        {{ end }}
+                    </div>
                     <a href="{{ .RelPermalink }}" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">READ_ENTRY</a>
                 </div>
             </div>

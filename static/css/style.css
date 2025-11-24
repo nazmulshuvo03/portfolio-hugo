@@ -650,3 +650,11 @@ ul {
     font-style: italic;
     color: var(--text-secondary);
 }
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    margin: 20px 0;
+    display: block;
+}
