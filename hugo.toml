@@ -1,7 +1,6 @@
 baseURL = 'https://nazmul.fyi/'
 languageCode = 'en-us'
 title = 'Nazmul Alom - Full Stack Engineer | Portfolio & Blog'
-theme = ''
 
 # Enable emoji support
 enableEmoji = true
