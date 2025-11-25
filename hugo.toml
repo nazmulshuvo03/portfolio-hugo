@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Nazmul Alom - Portfolio'
+title = 'Nazmul Alom'
 
 [params]
   # API URL for contact form
