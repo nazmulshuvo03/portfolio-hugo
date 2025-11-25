@@ -2,6 +2,12 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Nazmul Alom - Portfolio'
 
+[params]
+  # API URL for contact form
+  # Local dev: http://localhost:5050
+  # Production: leave empty or set to '' to use relative path /api/contact
+  apiURL = 'http://localhost:5050'
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

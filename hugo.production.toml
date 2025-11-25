@@ -1,0 +1,6 @@
+# Production configuration for Vercel deployment
+# This extends hugo.toml
+
+[params]
+  # Use relative path for production (Vercel serverless functions)
+  apiURL = ''

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "hugo --gc --minify",
+  "buildCommand": "hugo --gc --minify --config hugo.toml,hugo.production.toml",
   "outputDirectory": "public",
   "devCommand": "hugo server -D -p $PORT",
   "framework": "hugo",

@@ -28,7 +28,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
     };
     
     try {
-        const response = await fetch('/api/contact', {
+        // Get API URL from Hugo config (injected at build time)
+        const apiBaseURL = '{{ .Site.Params.apiURL | default "" }}';
+        const apiUrl = apiBaseURL ? `${apiBaseURL}/api/contact` : '/api/contact';
+        
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
