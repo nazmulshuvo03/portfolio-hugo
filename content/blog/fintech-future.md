@@ -3,8 +3,10 @@ title: "The Future of FinTech: A Developer's Perspective"
 date: 2025-11-20T14:30:00+06:00
 draft: false
 description: "Exploring how AI and blockchain are reshaping the financial technology landscape."
+image: "https://mpost.io/wp-content/uploads/6334595e5128c42e893fa51f_fintech.jpg"
 categories: ["Tech", "FinTech"]
 tags: ["AI", "Blockchain", "Future"]
+author: "Nazmul Alom"
 ---
 
 The financial technology sector is undergoing a massive transformation. As a developer who has worked in FinTech for several years, I've witnessed firsthand how legacy systems are being replaced by agile, data-driven solutions.

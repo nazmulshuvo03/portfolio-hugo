@@ -1,0 +1,17 @@
+{{ if not .IsHome }}
+<nav aria-label="Breadcrumb" style="margin-bottom: 30px;">
+    <ol style="display: flex; list-style: none; padding: 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); flex-wrap: wrap;">
+        <li style="display: flex; align-items: center;">
+            <a href="{{ .Site.BaseURL }}" style="color: var(--accent-color); text-decoration: none;">Home</a>
+            <span style="margin: 0 10px; color: var(--text-secondary);">/</span>
+        </li>
+        {{ if .Section }}
+        <li style="display: flex; align-items: center;">
+            <a href="{{ .Section | relURL }}" style="color: var(--accent-color); text-decoration: none; text-transform: capitalize;">{{ .Section }}</a>
+            <span style="margin: 0 10px; color: var(--text-secondary);">/</span>
+        </li>
+        {{ end }}
+        <li style="color: var(--text-primary);" aria-current="page">{{ .Title | truncate 50 }}</li>
+    </ol>
+</nav>
+{{ end }}

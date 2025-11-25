@@ -1,6 +1,9 @@
 {{ define "main" }}
 {{ $data := .Site.Data.portfolio }}
 
+{{- /* Include structured data for SEO */ -}}
+{{ partial "structured-data.html" . }}
+
 <section class="hero-section">
     <div class="container hero-grid">
         <div class="hero-text-area">
@@ -23,7 +26,7 @@
         </div>
         <div class="hero-visual">
             <div class="image-frame">
-                <img src="{{ $data.personal_information.image | relURL }}" alt="{{ $data.personal_information.name }}">
+                <img src="{{ $data.personal_information.image | relURL }}" alt="{{ $data.personal_information.name }} - Full Stack Engineer Portfolio Photo" loading="eager">
                 <div class="frame-decor"></div>
             </div>
             <div class="location-badge">

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.LanguageCode | default "en" }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <link rel="icon" type="image/png" href="{{ "image/icon.png" | relURL }}">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Params.name }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+    
+    {{- /* Include SEO meta tags */ -}}
+    {{ partial "seo.html" . }}
+    
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,9 +31,9 @@
     <div class="noise-overlay"></div>
     <div class="grid-background"></div>
     <header class="site-header">
-        <nav class="container">
+        <nav class="container" aria-label="Main navigation">
             <div class="logo">
-                <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+                <a href="{{ .Site.BaseURL }}" aria-label="Home">{{ .Site.Params.name }}</a>
             </div>
             <ul class="nav-links">
                 <li><a href="{{ .Site.BaseURL }}">Home</a></li>
@@ -50,7 +53,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; {{ now.Year }} {{ .Site.Data.portfolio.personal_information.name }}. All rights reserved.</p>
+            <p>&copy; {{ now.Year }} <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ .Site.Data.portfolio.personal_information.name }}</span></span>. All rights reserved.</p>
         </div>
     </footer>
 </body>

@@ -1,12 +1,62 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://nazmul.fyi/'
 languageCode = 'en-us'
-title = 'Nazmul Alom'
+title = 'Nazmul Alom - Full Stack Engineer | Portfolio & Blog'
+theme = ''
+
+# Enable emoji support
+enableEmoji = true
+
+# Enable robots.txt
+enableRobotsTXT = true
+
+# Enable sitemap
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 [params]
+  name = 'Nazmul Alom'
+  
   # API URL for contact form
   # Local dev: http://localhost:5050
   # Production: leave empty or set to '' to use relative path /api/contact
   apiURL = 'http://localhost:5050'
+  
+  # SEO & Social Media
+  description = 'Full Stack Engineer with 6+ years of experience in FinTech, EdTech, and IoT. Expert in JavaScript, TypeScript, Python, React, Node.js, and FastAPI.'
+  author = 'Nazmul Alom'
+  keywords = ['Full Stack Developer', 'Software Engineer', 'React Developer', 'Node.js', 'Python', 'FastAPI', 'FinTech', 'EdTech', 'Portfolio']
+  images = ['/image/nazmul_alom.png']
+  
+  # Social Media Links
+  [params.social]
+    twitter = 'nazmulshuvo03'
+    github = 'nazmulshuvo03'
+    linkedin = 'nazmul-alom'
+    email = 'nazmulshuvo03@gmail.com'
+
+# Taxonomies for better SEO
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+# Permalinks for clean URLs
+[permalinks]
+  blog = '/blog/:slug/'
+  
+# Output formats
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']
+
+# Privacy settings
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.youtube]
+    privacyEnhanced = true
 
 [markup]
   [markup.goldmark]

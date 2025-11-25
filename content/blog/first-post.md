@@ -5,6 +5,7 @@ draft: false
 description: "An introduction to my new portfolio website built with Hugo."
 categories: ["General"]
 tags: ["Portfolio", "Hugo"]
+author: "Nazmul Alom"
 ---
 
 Welcome to my new portfolio website! I built this using Hugo, a fast and modern static site generator.

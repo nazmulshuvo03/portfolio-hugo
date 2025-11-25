@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="section-wrapper">
+    <div class="container" style="text-align: center; padding: 100px 20px;">
+        <div class="section-header">
+            <span class="section-number" style="font-size: 4rem; color: var(--accent-color);">404</span>
+            <h1 class="section-title" style="font-size: 2.5rem; margin-top: 20px;">PAGE_NOT_FOUND</h1>
+        </div>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); margin: 40px 0; font-family: var(--font-mono);">
+            // The requested page does not exist in our system.
+        </p>
+        <div style="margin-top: 50px;">
+            <a href="{{ .Site.BaseURL }}" class="btn btn-primary" style="margin-right: 15px;">RETURN_HOME</a>
+            <a href="{{ "blog" | relURL }}" class="btn btn-outline">VIEW_BLOG</a>
+        </div>
+        
+        <div style="margin-top: 80px;">
+            <h3 style="font-family: var(--font-mono); font-size: 1.1rem; margin-bottom: 20px;">SUGGESTED_PAGES:</h3>
+            <ul style="list-style: none; padding: 0; font-family: var(--font-mono);">
+                <li style="margin: 10px 0;"><a href="{{ .Site.BaseURL }}#experience" style="color: var(--accent-color);">→ Experience</a></li>
+                <li style="margin: 10px 0;"><a href="{{ .Site.BaseURL }}#skills" style="color: var(--accent-color);">→ Skills</a></li>
+                <li style="margin: 10px 0;"><a href="{{ "blog" | relURL }}" style="color: var(--accent-color);">→ Blog</a></li>
+                <li style="margin: 10px 0;"><a href="{{ "contact" | relURL }}" style="color: var(--accent-color);">→ Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+{{ end }}

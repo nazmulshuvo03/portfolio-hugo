@@ -1,0 +1,92 @@
+{{ $data := .Site.Data.portfolio }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ $data.personal_information.name }}",
+  "url": "{{ .Site.BaseURL }}",
+  "image": "{{ $data.personal_information.image | absURL }}",
+  "jobTitle": "Full Stack Engineer",
+  "description": "{{ $data.professional_summary }}",
+  "email": "{{ $data.personal_information.email }}",
+  "telephone": "{{ $data.personal_information.phone }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ $data.personal_information.location }}"
+  },
+  "sameAs": [
+    "https://{{ $data.personal_information.linkedin }}",
+    "https://{{ $data.personal_information.github }}",
+    "https://{{ $data.personal_information.x }}"
+  ],
+  "alumniOf": [
+    {{ range $index, $edu := $data.education }}
+    {{ if $index }},{{ end }}
+    {
+      "@type": "EducationalOrganization",
+      "name": "{{ $edu.institution }}",
+      "description": "{{ $edu.degree }}"
+    }
+    {{ end }}
+  ],
+  "hasCredential": [
+    {{ range $index, $cert := $data.certifications }}
+    {{ if $index }},{{ end }}
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "{{ $cert.name }}",
+      "credentialCategory": "Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "{{ $cert.issuer }}"
+      }
+      {{ if $cert.url }},"url": "{{ $cert.url }}"{{ end }}
+    }
+    {{ end }}
+  ],
+  "knowsAbout": {{ $data.technical_skills.languages | jsonify }}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ $data.personal_information.name }}"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ .Site.BaseURL }}search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "{{ $data.personal_information.name }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    }]
+  }
+}
+</script>

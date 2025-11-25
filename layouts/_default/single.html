@@ -1,6 +1,12 @@
 {{ define "main" }}
+{{- /* Include structured data for blog posts */ -}}
+{{ partial "blog-structured-data.html" . }}
+
 <section class="section-wrapper blog-single">
     <div class="container">
+        {{- /* Add breadcrumbs for better navigation */ -}}
+        {{ partial "breadcrumbs.html" . }}
+        
         <article class="blog-post">
             <header class="post-header">
                 <h1 class="post-title glitch-text" style="font-size: 3rem;">{{ .Title }}</h1>

@@ -1,0 +1,59 @@
+{{ if .IsPage }}
+{{ $iso8601 := "2006-01-02T15:04:05-07:00" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "description": "{{ if .Description }}{{ .Description }}{{ else if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "image": {{ if .Params.image }}"{{ .Params.image | absURL }}"{{ else if .Site.Params.images }}"{{ index .Site.Params.images 0 | absURL }}"{{ else }}""{{ end }},
+  "datePublished": "{{ .Date.Format $iso8601 }}",
+  "dateModified": "{{ .Lastmod.Format $iso8601 }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}"{{ with .Site.Params.social.email }},
+    "email": "{{ . }}"{{ end }}{{ with .Site.Params.social.linkedin }},
+    "url": "https://linkedin.com/in/{{ . }}"{{ end }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ if .Site.Params.images }}{{ index .Site.Params.images 0 | absURL }}{{ end }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "keywords": "{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ end }}"{{ with .Params.categories }},
+  "articleSection": "{{ index . 0 }}"{{ end }},
+  "wordCount": {{ .WordCount }},
+  "inLanguage": "{{ .Site.LanguageCode }}"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "{{ .Site.BaseURL }}"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Blog",
+    "item": "{{ .Site.BaseURL }}blog/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "{{ .Title }}",
+    "item": "{{ .Permalink }}"
+  }]
+}
+</script>
+{{ end }}

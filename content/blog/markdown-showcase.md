@@ -5,6 +5,7 @@ draft: false
 description: "A comprehensive demonstration of various Markdown content types including lists, tables, checkboxes, and more."
 categories: ["Tech", "Tutorial"]
 tags: ["Markdown", "Documentation", "Guide"]
+author: "Nazmul Alom"
 ---
 
 This post demonstrates all common types of content formatting available in Markdown.
