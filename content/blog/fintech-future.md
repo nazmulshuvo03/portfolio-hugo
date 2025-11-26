@@ -1,7 +1,7 @@
 ---
 title: "The Future of FinTech: A Developer's Perspective"
 date: 2025-11-20T14:30:00+06:00
-draft: false
+draft: true
 description: "Exploring how AI and blockchain are reshaping the financial technology landscape."
 image: "https://mpost.io/wp-content/uploads/6334595e5128c42e893fa51f_fintech.jpg"
 categories: ["Tech", "FinTech"]
@@ -17,9 +17,9 @@ The financial technology sector is undergoing a massive transformation. As a dev
 
 Artificial Intelligence is no longer just a buzzword. In FinTech, it's being used for:
 
-*   **Fraud Detection**: Analyzing transaction patterns in real-time to identify anomalies.
-*   **Personalized Banking**: Chatbots and virtual assistants providing 24/7 support.
-*   **Algorithmic Trading**: Executing trades at speeds impossible for humans.
+- **Fraud Detection**: Analyzing transaction patterns in real-time to identify anomalies.
+- **Personalized Banking**: Chatbots and virtual assistants providing 24/7 support.
+- **Algorithmic Trading**: Executing trades at speeds impossible for humans.
 
 ### Risk Assessment Models
 

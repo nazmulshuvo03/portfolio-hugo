@@ -1,7 +1,7 @@
 ---
 title: "Markdown Content Types Showcase"
 date: 2025-11-24T12:00:00+06:00
-draft: false
+draft: true
 description: "A comprehensive demonstration of various Markdown content types including lists, tables, checkboxes, and more."
 categories: ["Tech", "Tutorial"]
 tags: ["Markdown", "Documentation", "Guide"]
@@ -119,32 +119,32 @@ Project requirements:
 
 ### Comparison Table
 
-| Feature | Free Plan | Pro Plan | Enterprise |
-|---------|-----------|----------|------------|
-| Users | 5 | 50 | Unlimited |
-| Storage | 10 GB | 100 GB | 1 TB |
-| API Calls | 1,000/day | 100,000/day | Unlimited |
-| Support | Email | Priority | 24/7 Phone |
-| Price | $0 | $29/mo | Custom |
+| Feature   | Free Plan | Pro Plan    | Enterprise |
+| --------- | --------- | ----------- | ---------- |
+| Users     | 5         | 50          | Unlimited  |
+| Storage   | 10 GB     | 100 GB      | 1 TB       |
+| API Calls | 1,000/day | 100,000/day | Unlimited  |
+| Support   | Email     | Priority    | 24/7 Phone |
+| Price     | $0        | $29/mo      | Custom     |
 
 ### Technology Stack Comparison
 
-| Technology | Use Case | Performance | Learning Curve | Community |
-|------------|----------|-------------|----------------|-----------|
-| React | UI Library | ⭐⭐⭐⭐⭐ | Medium | Excellent |
-| Vue.js | UI Framework | ⭐⭐⭐⭐⭐ | Easy | Good |
-| Angular | Full Framework | ⭐⭐⭐⭐ | Hard | Excellent |
-| Svelte | Compiler | ⭐⭐⭐⭐⭐ | Easy | Growing |
+| Technology | Use Case       | Performance | Learning Curve | Community |
+| ---------- | -------------- | ----------- | -------------- | --------- |
+| React      | UI Library     | ⭐⭐⭐⭐⭐  | Medium         | Excellent |
+| Vue.js     | UI Framework   | ⭐⭐⭐⭐⭐  | Easy           | Good      |
+| Angular    | Full Framework | ⭐⭐⭐⭐    | Hard           | Excellent |
+| Svelte     | Compiler       | ⭐⭐⭐⭐⭐  | Easy           | Growing   |
 
 ### Project Timeline
 
-| Phase | Duration | Start Date | End Date | Status |
-|-------|----------|------------|----------|--------|
-| Planning | 2 weeks | 2025-11-01 | 2025-11-14 | ✅ Complete |
-| Design | 3 weeks | 2025-11-15 | 2025-12-05 | 🔄 In Progress |
-| Development | 8 weeks | 2025-12-06 | 2026-01-30 | ⏳ Pending |
-| Testing | 2 weeks | 2026-02-01 | 2026-02-14 | ⏳ Pending |
-| Deployment | 1 week | 2026-02-15 | 2026-02-21 | ⏳ Pending |
+| Phase       | Duration | Start Date | End Date   | Status         |
+| ----------- | -------- | ---------- | ---------- | -------------- |
+| Planning    | 2 weeks  | 2025-11-01 | 2025-11-14 | ✅ Complete    |
+| Design      | 3 weeks  | 2025-11-15 | 2025-12-05 | 🔄 In Progress |
+| Development | 8 weeks  | 2025-12-06 | 2026-01-30 | ⏳ Pending     |
+| Testing     | 2 weeks  | 2026-02-01 | 2026-02-14 | ⏳ Pending     |
+| Deployment  | 1 week   | 2026-02-15 | 2026-02-21 | ⏳ Pending     |
 
 ## 4. Blockquotes
 
@@ -186,7 +186,7 @@ async function fetchUserData(userId) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching user:', error);
+    console.error("Error fetching user:", error);
     throw error;
   }
 }
@@ -201,13 +201,13 @@ import pandas as pd
 def analyze_sales_data(file_path):
     """Analyze sales data and return summary statistics."""
     df = pd.read_csv(file_path)
-    
+
     summary = {
         'total_sales': df['amount'].sum(),
         'avg_sale': df['amount'].mean(),
         'top_product': df.groupby('product')['amount'].sum().idxmax()
     }
-    
+
     return summary
 ```
 
@@ -215,7 +215,7 @@ def analyze_sales_data(file_path):
 
 ```sql
 -- Get top 10 customers by total purchases
-SELECT 
+SELECT
     c.customer_id,
     c.name,
     COUNT(o.order_id) as total_orders,
@@ -243,6 +243,7 @@ Use horizontal rules to separate major sections:
 ### Internal Links
 
 Check out my other posts:
+
 - [The Future of FinTech](/blog/fintech-future/)
 - [Welcome Post](/blog/first-post/)
 
@@ -251,8 +252,8 @@ Check out my other posts:
 ## 8. Emphasis and Formatting
 
 - **Bold text** for emphasis
-- *Italic text* for subtle emphasis
-- ***Bold and italic*** for maximum impact
+- _Italic text_ for subtle emphasis
+- **_Bold and italic_** for maximum impact
 - ~~Strikethrough~~ for deprecated content
 - `Inline code` for technical terms
 
