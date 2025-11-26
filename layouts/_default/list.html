@@ -79,6 +79,22 @@
         <div class="blog-container">
             <!-- Sidebar -->
             <aside class="blog-sidebar">
+                <!-- Search Box -->
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-family: var(--font-mono); color: var(--text-primary); font-size: 1rem; margin-bottom: 1rem; text-transform: uppercase;">// Search</h3>
+                    <input type="text" id="searchInput" placeholder="Type to search..." style="
+                        width: 100%;
+                        padding: 10px;
+                        background: rgba(255, 255, 255, 0.05);
+                        border: 1px solid var(--border-color);
+                        color: var(--text-primary);
+                        font-family: var(--font-mono);
+                        font-size: 0.9rem;
+                        outline: none;
+                        transition: border-color 0.2s;
+                    " onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='var(--border-color)'">
+                </div>
+
                 <h3 style="font-family: var(--font-mono); color: var(--text-primary); font-size: 1rem; margin-bottom: 1.5rem; text-transform: uppercase;">// Categories</h3>
                 <nav>
                     {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
@@ -90,9 +106,9 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="blog-grid">
+            <div class="blog-grid" id="blogGrid">
                 {{ range .Pages }}
-                <div class="brutalist-card">
+                <div class="brutalist-card post-item" data-title="{{ .Title | lower }}" data-tags="{{ range .Params.tags }}{{ . | lower }} {{ end }}" data-categories="{{ range .Params.categories }}{{ . | lower }} {{ end }}">
                     <div class="card-border"></div>
                     <div class="card-content">
                         <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
@@ -113,7 +129,69 @@
                 </div>
                 {{ end }}
             </div>
+            
+            <div id="noResults" style="display: none; grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary); font-family: var(--font-mono);">
+                <p>// NO_RESULTS_FOUND</p>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const blogGrid = document.getElementById('blogGrid');
+        const noResults = document.getElementById('noResults');
+        const posts = document.querySelectorAll('.post-item');
+        let searchIndex = [];
+
+        // Fetch the JSON index
+        fetch('/index.json')
+            .then(response => response.json())
+            .then(data => {
+                searchIndex = data;
+            })
+            .catch(error => console.error('Error loading search index:', error));
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+
+            if (query.length === 0) {
+                posts.forEach(post => post.style.display = 'block');
+                noResults.style.display = 'none';
+                return;
+            }
+
+            let hasResults = false;
+
+            // Simple client-side filtering based on pre-rendered DOM elements first for speed
+            // We can also use the JSON index for more complex search if needed, 
+            // but filtering DOM elements is instant for small-medium blogs.
+            posts.forEach(post => {
+                const title = post.getAttribute('data-title');
+                const tags = post.getAttribute('data-tags');
+                const categories = post.getAttribute('data-categories');
+                
+                // Also check content from JSON index if available
+                let contentMatch = false;
+                if (searchIndex.length > 0) {
+                     const postUrl = post.querySelector('a').getAttribute('href');
+                     const indexEntry = searchIndex.find(item => item.url === postUrl);
+                     if (indexEntry && indexEntry.content.toLowerCase().includes(query)) {
+                         contentMatch = true;
+                     }
+                }
+
+                if (title.includes(query) || tags.includes(query) || categories.includes(query) || contentMatch) {
+                    post.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = hasResults ? 'none' : 'block';
+        });
+    });
+</script>
 {{ end }}
