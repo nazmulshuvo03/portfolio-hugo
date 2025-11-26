@@ -13,7 +13,7 @@ Remember the days when we thought "JavaScript is flexible" was a compliment? We 
 
 Enter **TypeScript**. It's not just a trend; it's the safety belt that modern web development desperately needed.
 
-![TypeScript Essentials](/image/typescript-essential.png)
+![TypeScript Essentials](/image/content/typescript-essential.png)
 
 ## 1. The "Undefined is not a function" Killer
 

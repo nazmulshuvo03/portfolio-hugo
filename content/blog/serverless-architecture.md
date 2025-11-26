@@ -11,7 +11,7 @@ author: "Nazmul Alom"
 
 In the ever-evolving landscape of cloud computing, **Serverless Architecture** has emerged as a paradigm shift, not just a buzzword. It promises to liberate developers from the shackles of infrastructure management, allowing them to focus purely on code. But what exactly is it, and is it right for your next project?
 
-![Serverless Architecture](/image/serverless-architecture.png)
+![Serverless Architecture](/image/content/serverless-architecture.png)
 
 ## What is Serverless?
 

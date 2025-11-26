@@ -13,7 +13,7 @@ Git is the backbone of modern software development, yet many developers only scr
 
 This guide moves beyond the basics to explore the powerful tools that make Git a true productivity powerhouse.
 
-![Mastering Git](/image/mastering-git.png)
+![Mastering Git](/image/content/mastering-git.png)
 
 ## 1. Interactive Rebase: Rewriting History
 
