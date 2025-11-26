@@ -1,6 +1,6 @@
 ---
 title: "Mastering Git: Beyond the Basics"
-date: 2025-11-27T12:00:00+06:00
+date: 2025-11-26T12:00:00+06:00
 draft: false
 description: "Level up your version control skills with advanced Git commands, workflows, and real-life recovery scenarios."
 categories: ["Tech", "DevOps"]
