@@ -1,32 +1,118 @@
 {{ define "main" }}
+<style>
+    .blog-container {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .blog-sidebar {
+        position: sticky;
+        top: 100px; /* Adjust based on header height */
+        padding-right: 20px;
+        border-right: 1px solid var(--border-color);
+    }
+
+    .category-link {
+        display: block;
+        padding: 8px 0;
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        transition: color 0.2s;
+        text-decoration: none;
+    }
+
+    .category-link:hover {
+        color: var(--accent-color);
+        padding-left: 5px;
+    }
+
+    .category-count {
+        color: var(--accent-secondary);
+        font-size: 0.8em;
+        margin-left: 5px;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+        .blog-container {
+            grid-template-columns: 1fr;
+        }
+
+        .blog-sidebar {
+            position: static;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .category-link {
+            display: inline-block;
+            margin-right: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .category-link:hover {
+            padding-left: 10px; /* Reset hover effect for inline items */
+            border-color: var(--accent-color);
+        }
+    }
+</style>
+
 <section class="section-wrapper blog-list">
     <div class="container">
         <div class="section-header">
             <span class="section-number">LOGS</span>
             <h2 class="section-title">{{ .Title }}</h2>
         </div>
-        <div class="grid-2-col">
-            {{ range .Pages }}
-            <div class="brutalist-card">
-                <div class="card-border"></div>
-                <div class="card-content">
-                    <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
-                    <div class="meta-tags" style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
-                        <span style="color: var(--accent-color);">{{ .Date.Format "2006-01-02" }}</span>
-                        {{ if .Params.categories }}
-                        <span style="margin-left: 10px;">// {{ range .Params.categories }}{{ . }} {{ end }}</span>
-                        {{ end }}
+
+        <div class="blog-container">
+            <!-- Sidebar -->
+            <aside class="blog-sidebar">
+                <h3 style="font-family: var(--font-mono); color: var(--text-primary); font-size: 1rem; margin-bottom: 1.5rem; text-transform: uppercase;">// Categories</h3>
+                <nav>
+                    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                    <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="category-link">
+                        {{ $name }} <span class="category-count">[{{ $taxonomy.Count }}]</span>
+                    </a>
+                    {{ end }}
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="blog-grid">
+                {{ range .Pages }}
+                <div class="brutalist-card">
+                    <div class="card-border"></div>
+                    <div class="card-content">
+                        <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
+                        <div class="meta-tags" style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
+                            <span style="color: var(--accent-color);">{{ .Date.Format "2006-01-02" }}</span>
+                            {{ if .Params.categories }}
+                            <span style="margin-left: 10px;">// {{ range .Params.categories }}{{ . }} {{ end }}</span>
+                            {{ end }}
+                        </div>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary | truncate 150 }}{{ end }}</p>
+                        <div class="tags-list" style="margin-bottom: 20px;">
+                            {{ range .Params.tags }}
+                            <span style="display: inline-block; border: 1px solid var(--border-color); padding: 2px 8px; font-size: 0.7rem; margin-right: 5px; font-family: var(--font-mono); color: var(--text-secondary);">#{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        <a href="{{ .RelPermalink }}" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">READ_ENTRY</a>
                     </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary | truncate 150 }}{{ end }}</p>
-                    <div class="tags-list" style="margin-bottom: 20px;">
-                        {{ range .Params.tags }}
-                        <span style="display: inline-block; border: 1px solid var(--border-color); padding: 2px 8px; font-size: 0.7rem; margin-right: 5px; font-family: var(--font-mono); color: var(--text-secondary);">#{{ . }}</span>
-                        {{ end }}
-                    </div>
-                    <a href="{{ .RelPermalink }}" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">READ_ENTRY</a>
                 </div>
+                {{ end }}
             </div>
-            {{ end }}
         </div>
     </div>
 </section>
