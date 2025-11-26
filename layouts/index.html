@@ -1,189 +1,113 @@
 {{ define "main" }}
 {{ $data := .Site.Data.portfolio }}
-
-{{- /* Include structured data for SEO */ -}}
 {{ partial "structured-data.html" . }}
 
-<section class="hero-section">
-    <div class="container hero-grid">
-        <div class="hero-text-area">
-            <p class="greeting">HELLO_WORLD</p>
-            <h1 class="glitch-text" data-text="{{ $data.personal_information.name }}">{{ $data.personal_information.name }}</h1>
-            <h2 class="role-title">FULL_STACK_ENGINEER <span class="blink">_</span></h2>
-            <p class="hero-summary">{{ $data.professional_summary }}</p>
-            
+<div class="dashboard-grid">
+    <!-- Hero Widget (Large) -->
+    <div class="widget widget-hero">
+        <div class="widget-content">
+            <div class="hero-badge">SYSTEM_ONLINE</div>
+            <h1 class="hero-title">WELCOME_USER</h1>
+            <p class="hero-subtitle">I build high-performance web applications and scalable systems.</p>
             <div class="hero-actions">
-                <a href="{{ "contact" | relURL }}" class="btn btn-primary">CONTACT_ME</a>
-                <a href="#blog" class="btn btn-outline">VIEW_BLOG</a>
-            </div>
-
-            <div class="social-matrix">
-                <a href="mailto:{{ $data.personal_information.email }}" title="Email">EMAIL</a>
-                <a href="https://{{ $data.personal_information.linkedin }}" target="_blank" title="LinkedIn">LINKEDIN</a>
-                <a href="https://{{ $data.personal_information.github }}" target="_blank" title="GitHub">GITHUB</a>
-                <a href="https://{{ $data.personal_information.x }}" target="_blank" title="X">X</a>
+                <a href="{{ "contact" | relURL }}" class="btn btn-primary">INITIATE_CONTACT</a>
+                <a href="{{ "blog" | relURL }}" class="btn btn-outline">READ_LOGS</a>
             </div>
         </div>
-        <div class="hero-visual">
-            <div class="image-frame">
-                <img src="{{ $data.personal_information.image | relURL }}" alt="{{ $data.personal_information.name }} - Full Stack Engineer Portfolio Photo" loading="eager">
-                <div class="frame-decor"></div>
-            </div>
-            <div class="location-badge">
-                <i class="fas fa-map-marker-alt"></i> {{ $data.personal_information.location }}
+        <div class="hero-bg-text">DEV</div>
+    </div>
+
+    <!-- Stats Widget (Small) -->
+    <div class="widget widget-stats">
+        <div class="stat-item">
+            <span class="stat-value">6+</span>
+            <span class="stat-label">YEARS_EXP</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">20+</span>
+            <span class="stat-label">PROJECTS</span>
+        </div>
+    </div>
+
+    <!-- Profile Widget (Medium) -->
+    <div class="widget widget-profile">
+        <div class="profile-header">
+            <img src="{{ $data.personal_information.image | relURL }}" alt="Profile" class="profile-img">
+            <div class="profile-info">
+                <h3>{{ $data.personal_information.name }}</h3>
+                <p class="role-text">FULL_STACK_ENGINEER</p>
+                <div class="location-tag"><i class="fas fa-map-marker-alt"></i> {{ $data.personal_information.location }}</div>
             </div>
         </div>
     </div>
-</section>
 
-<section id="blog" class="section-wrapper">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-number">01</span>
-            <h2 class="section-title">LATEST_LOGS // THOUGHTS</h2>
+    <!-- Skills Widget (Large) -->
+    <div class="widget widget-skills">
+        <div class="widget-header">
+            <h3><i class="fas fa-code"></i> TECH_STACK</h3>
         </div>
-        <div class="grid-2-col">
-            {{ range first 2 (where .Site.RegularPages "Section" "blog") }}
-            <div class="brutalist-card">
-                <div class="card-border"></div>
-                <div class="card-content">
-                    <h3><a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none;">{{ .Title }}</a></h3>
-                    <div class="meta-tags" style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">
-                        <span style="color: var(--accent-color);">{{ .Date.Format "2006-01-02" }}</span>
-                        {{ if .Params.categories }}
-                        <span style="margin-left: 10px;">// {{ range .Params.categories }}{{ . }} {{ end }}</span>
-                        {{ end }}
-                    </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary | truncate 120 }}{{ end }}</p>
-                    <a href="{{ .RelPermalink }}" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">READ_ENTRY</a>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-        <div style="margin-top: 40px; text-align: center;">
-            <a href="{{ "blog" | relURL }}" class="btn btn-primary">VIEW_ALL_LOGS</a>
+        <div class="skills-list">
+            {{ range $data.technical_skills.languages }}<span class="skill-pill">{{ . }}</span>{{ end }}
+            {{ range $data.technical_skills.frontend }}<span class="skill-pill">{{ . }}</span>{{ end }}
+            {{ range $data.technical_skills.backend }}<span class="skill-pill">{{ . }}</span>{{ end }}
         </div>
     </div>
-</section>
 
-<section id="experience" class="section-wrapper">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-number">02</span>
-            <h2 class="section-title">SYSTEM_LOGS // EXPERIENCE</h2>
+    <!-- Experience Widget (Tall) -->
+    <!-- Experience Widget (Tall) -->
+    <div class="widget widget-experience">
+        <div class="widget-header">
+            <h3><i class="fas fa-history"></i> RECENT_ACTIVITY</h3>
         </div>
-        
-        <div class="experience-grid">
+        <div class="timeline">
             {{ range $data.experience }}
-            <div class="experience-card">
-                <div class="exp-header">
-                    <span class="exp-date">{{ .start }} — {{ .end }}</span>
-                    <h3 class="exp-role">{{ .role }}</h3>
-                </div>
-                <div class="exp-body">
-                    <h4 class="exp-company">@ {{ .company }} <span class="exp-loc">[{{ .location }}]</span></h4>
-                    <ul class="exp-list">
-                        {{ range .highlights }}
-                        <li><span class="bullet">></span> {{ . }}</li>
-                        {{ end }}
-                    </ul>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">{{ .start }} - {{ .end }}</span>
+                    <h4>{{ .role }}</h4>
+                    <p class="timeline-company">@ {{ .company }}</p>
                 </div>
             </div>
             {{ end }}
         </div>
     </div>
-</section>
 
-<section id="skills" class="section-wrapper">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-number">03</span>
-            <h2 class="section-title">TECH_STACK // CAPABILITIES</h2>
+    <!-- Education Widget (Medium) -->
+    <div class="widget widget-education">
+        <div class="widget-header">
+            <h3><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
         </div>
-
-        <div class="skills-terminal">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">user@portfolio:~/skills</span>
-            </div>
-            <div class="terminal-body">
-                <div class="skill-row">
-                    <span class="prompt">$</span> <span class="cmd">list languages</span>
-                    <div class="output">
-                        {{ range $data.technical_skills.languages }}<span class="skill-tag">[{{ . }}]</span> {{ end }}
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="prompt">$</span> <span class="cmd">list frontend</span>
-                    <div class="output">
-                        {{ range $data.technical_skills.frontend }}<span class="skill-tag">[{{ . }}]</span> {{ end }}
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="prompt">$</span> <span class="cmd">list backend</span>
-                    <div class="output">
-                        {{ range $data.technical_skills.backend }}<span class="skill-tag">[{{ . }}]</span> {{ end }}
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="prompt">$</span> <span class="cmd">list database</span>
-                    <div class="output">
-                        {{ range $data.technical_skills.database_storage }}<span class="skill-tag">[{{ . }}]</span> {{ end }}
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <span class="prompt">$</span> <span class="cmd">list infrastructure</span>
-                    <div class="output">
-                        {{ range $data.technical_skills.infrastructure_tools }}<span class="skill-tag">[{{ . }}]</span> {{ end }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="education" class="section-wrapper">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-number">04</span>
-            <h2 class="section-title">KNOWLEDGE_BASE // EDUCATION</h2>
-        </div>
-        <div class="grid-2-col">
+        <div class="education-list">
             {{ range $data.education }}
-            <div class="brutalist-card">
-                <div class="card-border"></div>
-                <div class="card-content">
-                    <h3>{{ .degree }}</h3>
-                    <p class="institution">{{ .institution }}</p>
-                    <p class="date">{{ .start }} - {{ .end }}</p>
+            <div class="edu-item">
+                <div class="edu-year">{{ .start }} - {{ .end }}</div>
+                <div class="edu-details">
+                    <h4>{{ .degree }}</h4>
+                    <p>{{ .institution }}</p>
                 </div>
             </div>
             {{ end }}
         </div>
     </div>
-</section>
 
-<section id="certifications" class="section-wrapper">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-number">05</span>
-            <h2 class="section-title">CERTIFICATES // VERIFIED</h2>
+    <!-- Latest Log Widget (Medium) -->
+    <div class="widget widget-blog">
+        <div class="widget-header">
+            <h3><i class="fas fa-rss"></i> LATEST_LOGS</h3>
         </div>
-        <div class="cert-grid">
-            {{ range $data.certifications }}
-            <a href="{{ .url | default "#" }}" target="_blank" class="cert-item">
-                <span class="cert-icon"><i class="fas fa-certificate"></i></span>
-                <div class="cert-info">
-                    <h3>{{ .name }}</h3>
-                    <p>{{ .issuer }} | {{ .date }}</p>
+        <div class="blog-list">
+            {{ range first 2 (where .Site.RegularPages "Section" "blog") }}
+            <div class="latest-post">
+                <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+                <div class="post-info">
+                    <a href="{{ .RelPermalink }}" class="post-title">{{ .Title }}</a>
+                    <p class="post-summary">{{ .Summary | truncate 60 }}</p>
                 </div>
-                <span class="cert-arrow">↗</span>
-            </a>
+                <a href="{{ .RelPermalink }}" class="read-more"><i class="fas fa-arrow-right"></i></a>
+            </div>
             {{ end }}
         </div>
     </div>
-</section>
-
+</div>
 {{ end }}
