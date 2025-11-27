@@ -66,7 +66,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof mermaid !== 'undefined') {
-                mermaid.initialize({ startOnLoad: true });
+                mermaid.initialize({ startOnLoad: false });
+                mermaid.run({
+                    querySelector: '.mermaid, pre code.language-mermaid'
+                });
             } else {
                 console.error('Mermaid library not loaded');
             }
