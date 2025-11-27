@@ -23,30 +23,30 @@ Enter **TypeScript**. It's not just a trend; it's the safety belt that modern we
 > You have a `User` object. Sometimes it has an address, sometimes it doesn't.
 >
 > **JavaScript:**
->
-> ```javascript
-> function getCity(user) {
->   return user.address.city; // CRASH! If address is missing.
-> }
-> ```
+
+```javascript
+function getCity(user) {
+  return user.address.city; // CRASH! If address is missing.
+}
+```
 
 You might not catch this until a user with no address logs in and your app crashes in production.
 
 > **TypeScript:**
->
-> ```typescript
-> interface User {
->   name: string;
->   address?: {
->     city: string;
->   };
-> }
->
-> function getCity(user: User) {
->   return user.address.city; // Error: Object is possibly 'undefined'.
-> }
-> ```
->
+
+```typescript
+interface User {
+  name: string;
+  address?: {
+    city: string;
+  };
+}
+
+function getCity(user: User) {
+  return user.address.city; // Error: Object is possibly 'undefined'.
+}
+```
+
 > TypeScript refuses to compile until you handle the case: `return user.address?.city`. You just prevented a production crash.
 
 ## 2. Refactoring with Confidence
@@ -57,7 +57,7 @@ You might not catch this until a user with no address logs in and your app crash
 > You decide to change `getUser(id)` to `getUser(uuid)`.
 >
 > **The Problem (JS):** You update 15 usages but miss one deep in a utility file. The app deploys. That one utility function fails silently or throws an error days later.
->
+
 > **The Solution (TS):** You change the definition. Immediately, your editor highlights 16 red lines across your entire project. You _cannot_ build the app until you fix every single one. Refactoring becomes a checklist, not a gamble.
 
 ## 3. Self-Documenting Code
@@ -76,7 +76,7 @@ You might not catch this until a user with no address logs in and your app crash
 > - `timeout` (number) - _Timeout in milliseconds_
 > - `retries` (number)
 > - `verbose` (boolean)
->
+
 > The types _are_ the documentation. They never go out of date because if they did, the code wouldn't compile.
 
 ## 4. The Power of Generics
@@ -85,30 +85,30 @@ You might not catch this until a user with no address logs in and your app crash
 
 > **Real-Life Scenario:**
 > You're building a reusable API response handler.
->
-> ```typescript
-> interface ApiResponse<T> {
->   status: number;
->   message: string;
->   data: T;
-> }
->
-> // Usage
-> interface User {
->   id: number;
->   name: string;
-> }
-> interface Product {
->   id: number;
->   price: number;
-> }
->
-> const userResponse: ApiResponse<User> = await fetchUser();
-> // TypeScript knows that userResponse.data has a .name property
->
-> const productResponse: ApiResponse<Product> = await fetchProduct();
-> // TypeScript knows that productResponse.data has a .price property
-> ```
+
+```typescript
+interface ApiResponse<T> {
+  status: number;
+  message: string;
+  data: T;
+}
+
+// Usage
+interface User {
+  id: number;
+  name: string;
+}
+interface Product {
+  id: number;
+  price: number;
+}
+
+const userResponse: ApiResponse<User> = await fetchUser();
+// TypeScript knows that userResponse.data has a .name property
+
+const productResponse: ApiResponse<Product> = await fetchProduct();
+// TypeScript knows that productResponse.data has a .price property
+```
 
 ## 5. Utility Types You Should Know
 
