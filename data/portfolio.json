@@ -2,7 +2,7 @@
   "personal_information": {
     "name": "Nazmul Alom",
     "location": "Dhaka, Bangladesh",
-    "phone": "+8801791916440",
+
     "linkedin": "linkedin.com/in/nazmul-alom",
     "email": "nazmulshuvo03@gmail.com",
     "github": "github.com/nazmulshuvo03",
@@ -75,10 +75,24 @@
   ],
   "technical_skills": {
     "languages": ["JavaScript (ES6+)", "TypeScript", "Python", "SQL"],
-    "frontend": ["React", "Next.js", "React Native", "Redux", "Tailwind CSS", "Material-UI"],
+    "frontend": [
+      "React",
+      "Next.js",
+      "React Native",
+      "Redux",
+      "Tailwind CSS",
+      "Material-UI"
+    ],
     "backend": ["Node.js", "FastAPI", "Django", "RESTful APIs"],
     "database_storage": ["PostgreSQL", "MongoDB", "Redis"],
-    "infrastructure_tools": ["RabbitMQ", "AWS", "GCP", "Linux", "Git", "Cumulocity IoT"]
+    "infrastructure_tools": [
+      "RabbitMQ",
+      "AWS",
+      "GCP",
+      "Linux",
+      "Git",
+      "Cumulocity IoT"
+    ]
   },
   "certifications": [
     {
